@@ -24,7 +24,7 @@ class _SplashViewState extends State<SplashView>
   void customNavigation() {
     Future.delayed(Duration(seconds: 3), () {
       if (context.mounted) {
-        GoRouter.of(context).push(NavigationRouter.kHomeView);
+        GoRouter.of(context).push(NavigationRouter.kMainView);
       }
     });
   }
