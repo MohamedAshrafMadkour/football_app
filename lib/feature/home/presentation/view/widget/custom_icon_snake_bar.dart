@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:football_scoore_app/core/utils/router.dart';
 import 'package:football_scoore_app/core/utils/styles.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomIconAndSnakeBar extends StatelessWidget {
   const CustomIconAndSnakeBar({super.key});
@@ -10,8 +12,13 @@ class CustomIconAndSnakeBar extends StatelessWidget {
       onPressed: () {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: const Center(
-              child: Text('Matches Finished', style: Styles.textMedium14),
+            content: InkWell(
+              onTap: () {
+                GoRouter.of(context).push(NavigationRouter.kPopUpView);
+              },
+              child: const Center(
+                child: Text('Matches Finished', style: Styles.textMedium14),
+              ),
             ),
             behavior: SnackBarBehavior.floating,
             margin: const EdgeInsets.only(bottom: 700, left: 250, right: 20),

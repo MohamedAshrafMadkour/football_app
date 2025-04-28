@@ -12,7 +12,7 @@ class UpComingMatchesSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.only(left: 16),
-          child: Text("Up-Coming Matches", style: Styles.textSemiBold18),
+          child: Text("Up-Coming Matches", style: Styles.textBold18),
         ),
         SizedBox(height: 20),
         UpComingMatchesList(),

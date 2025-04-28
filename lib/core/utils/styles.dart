@@ -21,7 +21,7 @@ abstract class Styles {
     fontSize: 21,
     color: Color(0xffFFFFFF),
   );
-  static const TextStyle textSemiBold18 = TextStyle(
+  static const TextStyle textBold18 = TextStyle(
     fontWeight: FontWeight.bold,
     fontSize: 18,
     color: Color(0xffFFFFFF),
