@@ -14,7 +14,7 @@ class CustomIconAndSnakeBar extends StatelessWidget {
               child: Text('Matches Finished', style: Styles.textMedium14),
             ),
             behavior: SnackBarBehavior.floating,
-            margin: const EdgeInsets.only(bottom: 700, left: 270),
+            margin: const EdgeInsets.only(bottom: 700, left: 250, right: 20),
             backgroundColor: const Color(0xff2e2e3a),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
