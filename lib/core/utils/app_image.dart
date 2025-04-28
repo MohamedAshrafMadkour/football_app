@@ -3,8 +3,8 @@ class Assets {
   Assets._();
   
   /// Assets for imagesBall
-  /// assets/images/ball.jpg
-  static const String imagesBall = "assets/images/ball.jpg";
+  /// assets/images/ball.png
+  static const String imagesBall = "assets/images/ball.png";
 
   /// Assets for imagesBundesliga
   /// assets/images/bundesliga.png
