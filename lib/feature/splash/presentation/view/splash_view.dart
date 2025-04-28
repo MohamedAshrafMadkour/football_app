@@ -22,7 +22,7 @@ class _SplashViewState extends State<SplashView>
   }
 
   void customNavigation() {
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 3), () {
       if (context.mounted) {
         GoRouter.of(context).push(NavigationRouter.kMainView);
       }
@@ -32,10 +32,10 @@ class _SplashViewState extends State<SplashView>
   void customAnimationControllerMethod() {
     animationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 2),
+      duration: const Duration(seconds: 2),
     );
     slidingAnimation = Tween<Offset>(
-      begin: Offset(0, 12),
+      begin: const Offset(0, 12),
       end: Offset.zero,
     ).animate(animationController);
     animationController.forward();

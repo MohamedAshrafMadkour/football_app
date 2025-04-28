@@ -13,7 +13,7 @@ class FootballApp extends StatelessWidget {
     return MaterialApp.router(
       theme: ThemeData(
         fontFamily: 'Poppins',
-        scaffoldBackgroundColor: Color(0xff181928),
+        scaffoldBackgroundColor: const Color(0xff181928),
       ),
       debugShowCheckedModeBanner: false,
       routerConfig: NavigationRouter.router,

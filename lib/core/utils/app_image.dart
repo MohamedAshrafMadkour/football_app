@@ -3,12 +3,20 @@ class Assets {
   Assets._();
   
   /// Assets for imagesBall
-  /// assets/images/ball.png
-  static const String imagesBall = "assets/images/ball.png";
+  /// assets/images/ball.jpg
+  static const String imagesBall = "assets/images/ball.jpg";
 
   /// Assets for imagesBundesliga
   /// assets/images/bundesliga.png
   static const String imagesBundesliga = "assets/images/bundesliga.png";
+
+  /// Assets for imagesCombinedShape
+  /// assets/images/Combined-Shape.png
+  static const String imagesCombinedShape = "assets/images/Combined-Shape.png";
+
+  /// Assets for imagesHome
+  /// assets/images/Home.png
+  static const String imagesHome = "assets/images/Home.png";
 
   /// Assets for imagesLaliga
   /// assets/images/laliga.png
