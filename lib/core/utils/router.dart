@@ -5,7 +5,8 @@ import 'package:go_router/go_router.dart';
 
 abstract class NavigationRouter {
   static const kHomeView = '/homeView';
-  final GoRouter router = GoRouter(
+
+  static GoRouter router = GoRouter(
     routes: <RouteBase>[
       GoRoute(
         path: '/',

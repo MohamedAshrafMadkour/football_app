@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:football_scoore_app/core/utils/app_image.dart';
+import 'package:football_scoore_app/core/utils/router.dart';
+import 'package:football_scoore_app/feature/splash/presentation/view/widget/custom_animation_builder.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -15,13 +17,22 @@ class _SplashViewState extends State<SplashView>
   @override
   void initState() {
     customAnimationControllerMethod();
+    customNavigation();
     super.initState();
+  }
+
+  void customNavigation() {
+    Future.delayed(Duration(seconds: 3), () {
+      if (context.mounted) {
+        GoRouter.of(context).push(NavigationRouter.kHomeView);
+      }
+    });
   }
 
   void customAnimationControllerMethod() {
     animationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 3),
+      duration: Duration(seconds: 2),
     );
     slidingAnimation = Tween<Offset>(
       begin: Offset(0, 12),
@@ -38,14 +49,6 @@ class _SplashViewState extends State<SplashView>
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      builder: (context, child) {
-        return SlideTransition(
-          position: slidingAnimation,
-          child: Center(child: Image.asset(Assets.imagesBall)),
-        );
-      },
-      animation: slidingAnimation,
-    );
+    return CustomAnimationBuilder(slidingAnimation: slidingAnimation);
   }
 }

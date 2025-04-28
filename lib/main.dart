@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:football_scoore_app/feature/splash/presentation/view/splash_view.dart';
+import 'package:football_scoore_app/core/utils/router.dart';
 
 void main() {
   runApp(const FootballApp());
@@ -10,9 +10,9 @@ class FootballApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      home: const SplashView(),
+      routerConfig: NavigationRouter.router,
     );
   }
 }
