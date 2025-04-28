@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:football_scoore_app/core/utils/app_image.dart';
 import 'package:football_scoore_app/core/utils/styles.dart';
 import 'package:football_scoore_app/feature/home/presentation/view/widget/custom_icon_button.dart';
+import 'package:football_scoore_app/feature/home/presentation/view/widget/home_view_body.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -19,6 +20,7 @@ class HomeView extends StatelessWidget {
           CustomIconButton(icon: Icons.notifications),
         ],
       ),
+      body: const HomeViewBody(),
     );
   }
 }

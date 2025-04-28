@@ -6,9 +6,17 @@ class Assets {
   /// assets/images/ball.png
   static const String imagesBall = "assets/images/ball.png";
 
+  /// Assets for imagesBarcelona
+  /// assets/images/barcelona.png
+  static const String imagesBarcelona = "assets/images/barcelona.png";
+
   /// Assets for imagesBundesliga
   /// assets/images/bundesliga.png
   static const String imagesBundesliga = "assets/images/bundesliga.png";
+
+  /// Assets for imagesCity
+  /// assets/images/city.png
+  static const String imagesCity = "assets/images/city.png";
 
   /// Assets for imagesCombinedShape
   /// assets/images/Combined-Shape.png
