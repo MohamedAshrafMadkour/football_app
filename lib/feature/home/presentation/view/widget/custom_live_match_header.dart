@@ -1,29 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:football_scoore_app/core/utils/styles.dart';
+import 'package:football_scoore_app/feature/home/presentation/view/widget/custom_icon_snake_bar.dart';
 
-class CustomLiveMatchHeader extends StatelessWidget {
+class CustomLiveMatchHeader extends StatefulWidget {
   const CustomLiveMatchHeader({super.key});
 
   @override
+  State<CustomLiveMatchHeader> createState() => _CustomLiveMatchHeaderState();
+}
+
+class _CustomLiveMatchHeaderState extends State<CustomLiveMatchHeader> {
+  bool isShow = false;
+  @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const Text('Live Match', style: Styles.textSemiBold21),
-          IconButton(
-            onPressed: () {},
-            icon: Transform.rotate(
-              angle: -1.57079633,
-              child: const Icon(
-                Icons.arrow_back_ios_new_rounded,
-                color: Colors.white,
-              ),
-            ),
+    return const Column(
+      children: [
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 12),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Live Match', style: Styles.textSemiBold21),
+              CustomIconAndSnakeBar(),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
