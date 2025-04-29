@@ -21,7 +21,7 @@ class CustomIconAndSnakeBar extends StatelessWidget {
               ),
             ),
             behavior: SnackBarBehavior.floating,
-            margin: const EdgeInsets.only(bottom: 700, left: 250, right: 20),
+            margin: const EdgeInsets.only(bottom: 670, left: 250, right: 10),
             backgroundColor: const Color(0xff2e2e3a),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),

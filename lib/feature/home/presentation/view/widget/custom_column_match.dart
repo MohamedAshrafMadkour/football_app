@@ -12,8 +12,8 @@ class CustomColumnMatch extends StatelessWidget {
         Image.asset(
           Assets.imagesBarcelona,
           fit: BoxFit.fill,
-          height: 90,
-          width: 90,
+          height: 65,
+          width: 65,
         ),
         const SizedBox(height: 20),
         const CustomTextList(),
