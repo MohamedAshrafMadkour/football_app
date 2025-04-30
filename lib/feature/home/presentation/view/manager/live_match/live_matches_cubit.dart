@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:football_scoore_app/feature/home/data/model/matches_live_model/matches_live_model.dart';
+import 'package:football_scoore_app/feature/home/data/model/live_match/score.dart';
 import 'package:football_scoore_app/feature/home/data/repo/home_repo.dart';
 
 part 'live_matches_state.dart';
@@ -15,8 +15,12 @@ class LiveMatchesCubit extends Cubit<LiveMatchesState> {
       (failure) {
         emit(LiveMatchesFailure(error: failure.errorMessage));
       },
-      (match) {
-        emit(LiveMatchesLoaded(match: match));
+      (matches) {
+        if (matches.isEmpty) {
+          emit(const LiveMatchesFailure(error: 'No live matches available.'));
+        } else {
+          emit(LiveMatchesLoaded(match: matches));
+        }
       },
     );
   }

@@ -12,7 +12,7 @@ final class LiveMatchesInitial extends LiveMatchesState {}
 final class LiveMatchesLoading extends LiveMatchesState {}
 
 final class LiveMatchesLoaded extends LiveMatchesState {
-  final List<MatchesLiveModel> match;
+  final List<LiveMatch> match;
 
   const LiveMatchesLoaded({required this.match});
 }

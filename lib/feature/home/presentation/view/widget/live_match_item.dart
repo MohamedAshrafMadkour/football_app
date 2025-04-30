@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:football_scoore_app/core/utils/router.dart';
 import 'package:football_scoore_app/core/utils/styles.dart';
+import 'package:football_scoore_app/feature/home/data/model/live_match/score.dart';
 import 'package:football_scoore_app/feature/home/presentation/view/widget/custom_column_match.dart';
 import 'package:go_router/go_router.dart';
 
 class LiveMatchItem extends StatelessWidget {
-  const LiveMatchItem({super.key, required this.currentIndex});
+  const LiveMatchItem({
+    super.key,
+    required this.currentIndex,
+    required this.match,
+  });
   final bool currentIndex;
+  final LiveMatch match;
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -32,19 +39,25 @@ class LiveMatchItem extends StatelessWidget {
                       end: Alignment.centerRight,
                     ),
           ),
-          child: const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text('60 : 22', style: Styles.textMedium13),
+                Text(
+                  '${match.fixture.status?.elapsed}',
+                  style: Styles.textMedium13,
+                ),
                 Row(
                   children: [
-                    CustomColumnMatch(),
-                    SizedBox(width: 28),
-                    Text('2 - 2', style: Styles.textSemiBold21),
-                    SizedBox(width: 28),
-                    CustomColumnMatch(),
+                    CustomColumnMatchHome(match: match),
+                    const SizedBox(width: 28),
+                    Text(
+                      '${match.goal.home} - ${match.goal.away}',
+                      style: Styles.textSemiBold21,
+                    ),
+                    const SizedBox(width: 28),
+                    CustomColumnMatchAway(match: match),
                   ],
                 ),
               ],

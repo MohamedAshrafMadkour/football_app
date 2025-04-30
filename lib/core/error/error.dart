@@ -52,19 +52,17 @@ class ServerFailure extends Failure {
       return ServerFailure('⚠️ Unknown Error! Please try again.');
     }
 
+    final errorDetails =
+        response?['error']?['message'] ?? 'Unknown error occurred.';
+
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
-      final message =
-          response?['error']?['message'] ??
-          '🔑 Authentication Error! Please check your credentials.';
-      return ServerFailure(message);
+      return ServerFailure('🔑 Authentication Error! $errorDetails');
     } else if (statusCode == 404) {
-      return ServerFailure(
-        '🔍 Not Found! The requested resource was not found.',
-      );
+      return ServerFailure('🔍 Not Found! $errorDetails');
     } else if (statusCode == 500) {
-      return ServerFailure('🛠️ Server Error! Please try again later.');
+      return ServerFailure('🛠️ Server Error! $errorDetails');
     } else {
-      return ServerFailure('⚠️ Unexpected Error! Please try again.');
+      return ServerFailure('⚠️ Unexpected Error! $errorDetails');
     }
   }
 }
