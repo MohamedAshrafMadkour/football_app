@@ -13,20 +13,14 @@ class MatchesCompletedList extends StatelessWidget {
       builder: (context, state) {
         if (state is MatchesCompletedLoaded) {
           print('Length of response: ${state.match.length}');
-          return SizedBox(
-            height: MediaQuery.sizeOf(context).height,
-            child: ListView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: state.match.length,
-              itemBuilder: (context, index) {
+          return IntrinsicHeight(
+            child: Column(
+              children: List.generate(state.match.length, (index) {
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 8, left: 8, right: 8),
-                  child: MatchesCompletedItem(
-                    match: state.match[index],
-                    index: index,
-                  ),
+                  child: MatchesCompletedItem(match: state.match[index]),
                 );
-              },
+              }),
             ),
           );
         } else if (state is MatchesCompletedFailure) {

@@ -28,7 +28,7 @@ class LiveMatchItemList extends StatelessWidget {
             );
           }
           return SizedBox(
-            height: MediaQuery.sizeOf(context).height * .24,
+            height: MediaQuery.sizeOf(context).height * .26,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: state.match.length,

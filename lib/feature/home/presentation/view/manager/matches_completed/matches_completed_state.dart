@@ -12,7 +12,7 @@ final class MatchesCompletedInitial extends MatchesCompletedState {}
 final class MatchesCompletedLoading extends MatchesCompletedState {}
 
 final class MatchesCompletedLoaded extends MatchesCompletedState {
-  final List<MatchesCompleted> match;
+  final List<LiveMatch> match;
 
   const MatchesCompletedLoaded({required this.match});
 }

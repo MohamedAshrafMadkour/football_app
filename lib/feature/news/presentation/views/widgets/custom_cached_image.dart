@@ -24,11 +24,9 @@ class CustomCachedImage extends StatelessWidget {
   }
 }
 
+//AspectRatio(
 
-
- //AspectRatio(
-
- //const Color(0xff2e2e3a),
+//const Color(0xff2e2e3a),
 //             aspectRatio: 2.9 / 3.5,
-            // child: 
+// child:
 //           )

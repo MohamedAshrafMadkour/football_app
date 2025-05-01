@@ -3,7 +3,6 @@ import 'package:dio/dio.dart';
 import 'package:football_scoore_app/core/error/error.dart';
 import 'package:football_scoore_app/core/utils/api_service.dart';
 import 'package:football_scoore_app/feature/home/data/model/live_match/score.dart';
-import 'package:football_scoore_app/feature/home/data/model/matches_completed/matches_completed.dart';
 import 'package:football_scoore_app/feature/home/data/repo/home_repo.dart';
 
 class HomeRepoImpl extends HomeRepo {
@@ -30,8 +29,7 @@ class HomeRepoImpl extends HomeRepo {
   //https://v3.football.api-sports.io/fixtures?league=39&season=2021&from=2021-07-01&to=2023-10-31&timezone=Europe/England
 
   @override
-  Future<Either<Failure, List<MatchesCompleted>>>
-  displayMatchesCompleted() async {
+  Future<Either<Failure, List<LiveMatch>>> displayMatchesCompleted() async {
     try {
       final data = await apiServices.get(
         endPoints:
@@ -42,10 +40,10 @@ class HomeRepoImpl extends HomeRepo {
         return left(ServerFailure('No completed matches found.'));
       }
 
-      List<MatchesCompleted> matches = [];
+      List<LiveMatch> matches = [];
       for (var item in data['response']) {
         if (item != null) {
-          matches.add(MatchesCompleted.fromJson(item));
+          matches.add(LiveMatch.fromJson(item));
         }
       }
       return right(matches);
@@ -57,7 +55,7 @@ class HomeRepoImpl extends HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<MatchesCompleted>>> displayMatchesUpComing() {
+  Future<Either<Failure, List<LiveMatch>>> displayMatchesUpComing() {
     throw UnimplementedError();
   }
 }

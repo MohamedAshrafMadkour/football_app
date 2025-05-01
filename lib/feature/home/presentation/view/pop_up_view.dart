@@ -30,10 +30,13 @@ class _PopUpViewState extends State<PopUpView> {
       body: const SingleChildScrollView(
         child: Column(
           children: [
-            Text(
-              'Matches Completed',
-              style: Styles.textSemiBold21,
-              textAlign: TextAlign.center,
+            Align(
+              alignment: Alignment.topCenter,
+              child: Text(
+                'Previous Years',
+                style: Styles.textSemiBold21,
+                textAlign: TextAlign.center,
+              ),
             ),
             SizedBox(height: 30),
             MatchesCompletedList(),
