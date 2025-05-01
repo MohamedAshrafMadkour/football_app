@@ -7,6 +7,8 @@ import 'package:football_scoore_app/core/utils/service_locator.dart';
 import 'package:football_scoore_app/feature/home/data/repo/home_repo_impl.dart';
 import 'package:football_scoore_app/feature/home/presentation/view/manager/live_match/live_matches_cubit.dart';
 import 'package:football_scoore_app/feature/home/presentation/view/manager/matches_completed/matches_completed_cubit.dart';
+import 'package:football_scoore_app/feature/news/data/repo/news_repo_impl.dart';
+import 'package:football_scoore_app/feature/news/presentation/views/manager/news_cubit/news_cubit.dart';
 
 //https://newsapi.org/v2/everything?q=football+transfers&apiKey=1944b44380b345dba309bc44223f0aa2
 void main() {
@@ -35,6 +37,9 @@ class FootballApp extends StatelessWidget {
           create:
               (context) =>
                   LiveMatchesCubit(getIt.get<HomeRepoImpl>())..getMatchesLive(),
+        ),
+        BlocProvider(
+          create: (context) => NewsCubit(getIt.get<NewsRepoImpl>())..getNews(),
         ),
       ],
       child: BlocBuilder<ManageStateCubit, ThemeMode>(

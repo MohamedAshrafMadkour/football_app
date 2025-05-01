@@ -1,19 +1,19 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:football_scoore_app/feature/news/data/model/news_model/news_model.dart';
 
 class CustomCachedImage extends StatelessWidget {
-  const CustomCachedImage({super.key});
-
+  const CustomCachedImage({super.key, required this.news});
+  final NewsModel news;
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 2.6 / 4,
+      aspectRatio: 1,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16),
         child: CachedNetworkImage(
           fit: BoxFit.fill,
-          imageUrl:
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Bundesliga_logo_%282017%29.svg/1200px-Bundesliga_logo_%282017%29.svg.png",
+          imageUrl: news.urlToImage ?? " ",
           placeholder:
               (context, url) =>
                   const Center(child: CircularProgressIndicator()),

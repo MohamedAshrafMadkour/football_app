@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:football_scoore_app/core/utils/styles.dart';
+import 'package:football_scoore_app/feature/news/data/model/news_model/news_model.dart';
 
 class CustomColumnText extends StatelessWidget {
-  const CustomColumnText({super.key});
-
+  const CustomColumnText({super.key, required this.news});
+  final NewsModel news;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Expanded(
           child: Text(
-            'Champions League 2022-23 draw: group stage analysis and predictions',
+            news.title ?? " ",
             style: Styles.textSemiBold18.copyWith(
               color:
                   Theme.of(context).brightness == Brightness.light
@@ -25,7 +26,7 @@ class CustomColumnText extends StatelessWidget {
         Align(
           alignment: Alignment.centerRight,
           child: Text(
-            '29 Aug 2022',
+            'In day ${news.publishedAt.toString().substring(0, 10)}',
             style: Styles.textMedium10.copyWith(
               color:
                   Theme.of(context).brightness == Brightness.dark

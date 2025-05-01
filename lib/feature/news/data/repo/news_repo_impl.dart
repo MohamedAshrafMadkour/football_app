@@ -7,7 +7,7 @@ import 'package:football_scoore_app/feature/news/data/repo/news_repo.dart';
 class NewsRepoImpl extends NewsRepo {
   final ApiServices apiServices;
 
-  NewsRepoImpl({required this.apiServices});
+  NewsRepoImpl(this.apiServices);
   @override
   Future<Either<Failure, List<NewsModel>>> getFootballNews() async {
     try {

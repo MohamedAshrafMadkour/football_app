@@ -33,7 +33,7 @@ class ApiServices {
   static const apiKey2 = '1944b44380b345dba309bc44223f0aa2';
   Future<Map<String, dynamic>> getNeWs({required String endPoints}) async {
     try {
-      var response = await dio.get('$_baseUrl2$endPoints&$apiKey2');
+      var response = await dio.get('$_baseUrl2$endPoints&apiKey=$apiKey2');
       print('data=${response.data}');
       return response.data;
     } catch (e) {
