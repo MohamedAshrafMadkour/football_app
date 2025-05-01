@@ -25,21 +25,26 @@ class _PopUpViewState extends State<PopUpView> {
         scrolledUnderElevation: 0,
         elevation: 0,
         backgroundColor: Colors.transparent,
-        iconTheme: const IconThemeData(color: Colors.white),
+        iconTheme: IconThemeData(
+          color:
+              Theme.of(context).brightness == Brightness.dark
+                  ? const Color(0xffFFFFFF)
+                  : const Color(0xff2e2e3a),
+        ),
       ),
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Column(
           children: [
             Align(
               alignment: Alignment.topCenter,
               child: Text(
                 'Previous Years',
-                style: Styles.textSemiBold21,
+                style: Styles.textSemiBold21(context),
                 textAlign: TextAlign.center,
               ),
             ),
-            SizedBox(height: 30),
-            MatchesCompletedList(),
+            const SizedBox(height: 30),
+            const MatchesCompletedList(),
           ],
         ),
       ),

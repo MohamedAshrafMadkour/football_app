@@ -12,7 +12,7 @@ class CustomColumnText extends StatelessWidget {
         Expanded(
           child: Text(
             news.title ?? " ",
-            style: Styles.textSemiBold18.copyWith(
+            style: Styles.textSemiBold18(context).copyWith(
               color:
                   Theme.of(context).brightness == Brightness.light
                       ? Colors.black
@@ -27,7 +27,7 @@ class CustomColumnText extends StatelessWidget {
           alignment: Alignment.centerRight,
           child: Text(
             'In day ${news.publishedAt.toString().substring(0, 10)}',
-            style: Styles.textMedium10.copyWith(
+            style: Styles.textMedium10(context).copyWith(
               color:
                   Theme.of(context).brightness == Brightness.dark
                       ? Colors.white

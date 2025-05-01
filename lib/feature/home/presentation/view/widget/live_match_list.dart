@@ -18,12 +18,7 @@ class LiveMatchItemList extends StatelessWidget {
             return Center(
               child: Text(
                 "No matches now",
-                style: Styles.textMedium14.copyWith(
-                  color:
-                      Theme.of(context).brightness == Brightness.dark
-                          ? Colors.white
-                          : const Color(0xff2e2e3a),
-                ),
+                style: Styles.textMedium14(context),
               ),
             );
           }
@@ -35,7 +30,7 @@ class LiveMatchItemList extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.only(right: 8),
-                  child: LiveMatchItem(
+                  child: LiveMatchDarkAndWhite(
                     currentIndex: index % 2 == 0,
                     match: state.match[index],
                   ),

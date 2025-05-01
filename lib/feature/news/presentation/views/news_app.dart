@@ -17,7 +17,7 @@ class NewsView extends StatelessWidget {
           children: [
             Text(
               'Football',
-              style: Styles.textSemiBold21.copyWith(
+              style: Styles.textSemiBold21(context).copyWith(
                 color:
                     Theme.of(context).brightness == Brightness.dark
                         ? Colors.white
@@ -26,10 +26,9 @@ class NewsView extends StatelessWidget {
             ),
             Text(
               'News',
-              style: Styles.textSemiBold21.copyWith(
-                color: Colors.amber,
-                fontWeight: FontWeight.bold,
-              ),
+              style: Styles.textSemiBold21(
+                context,
+              ).copyWith(color: Colors.amber, fontWeight: FontWeight.bold),
             ),
           ],
         ),

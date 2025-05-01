@@ -12,15 +12,7 @@ class UpComingMatchesSection extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.only(left: 16),
-          child: Text(
-            "Up-Coming Matches",
-            style: Styles.textBold18.copyWith(
-              color:
-                  Theme.of(context).brightness == Brightness.dark
-                      ? Colors.white
-                      : const Color(0xff2e2e3a),
-            ),
-          ),
+          child: Text("Up-Coming Matches", style: Styles.textBold18(context)),
         ),
         const SizedBox(height: 20),
         const UpComingMatchesList(),

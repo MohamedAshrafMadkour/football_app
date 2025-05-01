@@ -20,7 +20,7 @@ class CustomLeagueInfo extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 8),
-        Text(match.league.name, style: Styles.textMedium14),
+        Text(match.league.name, style: Styles.textMedium14(context)),
       ],
     );
   }

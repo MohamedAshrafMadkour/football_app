@@ -18,7 +18,10 @@ class MatchesCompletedItem extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
         decoration: BoxDecoration(
-          color: const Color(0xff2e2e3a),
+          color:
+              Theme.of(context).brightness == Brightness.light
+                  ? const Color(0xffEDEDED)
+                  : const Color(0xff2e2e3a),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Row(
@@ -31,7 +34,7 @@ class MatchesCompletedItem extends StatelessWidget {
                 children: [
                   Text(
                     match.home.name,
-                    style: Styles.textMedium14,
+                    style: Styles.textMedium14(context),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.center,
@@ -39,13 +42,13 @@ class MatchesCompletedItem extends StatelessWidget {
                   const SizedBox(height: 8),
                   CustomCachedImageCompleted(imageUrl: match.home.logoUrl),
                   const SizedBox(height: 4),
-                  const Text('Home', style: Styles.textMedium14),
+                  Text('Home', style: Styles.textMedium14(context)),
                 ],
               ),
             ),
             Text(
               '${match.goal.home} - ${match.goal.away}',
-              style: Styles.textSemiBold21,
+              style: Styles.textSemiBold21(context),
             ),
             SizedBox(
               width: MediaQuery.sizeOf(context).width * .24,
@@ -54,7 +57,7 @@ class MatchesCompletedItem extends StatelessWidget {
                 children: [
                   Text(
                     match.away.name,
-                    style: Styles.textMedium14,
+                    style: Styles.textMedium14(context),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.center,
@@ -62,7 +65,7 @@ class MatchesCompletedItem extends StatelessWidget {
                   const SizedBox(height: 8),
                   CustomCachedImageCompleted(imageUrl: match.away.logoUrl),
                   const SizedBox(height: 4),
-                  const Text('Away', style: Styles.textMedium14),
+                  Text('Away', style: Styles.textMedium14(context)),
                 ],
               ),
             ),

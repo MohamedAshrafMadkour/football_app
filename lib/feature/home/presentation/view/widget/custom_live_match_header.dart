@@ -20,15 +20,7 @@ class _CustomLiveMatchHeaderState extends State<CustomLiveMatchHeader> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                'Live Match',
-                style: Styles.textSemiBold21.copyWith(
-                  color:
-                      Theme.of(context).brightness == Brightness.dark
-                          ? Colors.white
-                          : Colors.black,
-                ),
-              ),
+              Text('Live Match', style: Styles.textSemiBold21(context)),
               const CustomIconAndSnakeBar(),
             ],
           ),

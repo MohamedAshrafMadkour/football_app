@@ -17,14 +17,19 @@ class CustomIconAndSnakeBar extends StatelessWidget {
               onTap: () {
                 GoRouter.of(context).push(NavigationRouter.kPopUpView);
               },
-              child: const Center(
-                child: Text('Matches Finished', style: Styles.textMedium14),
+              child: Center(
+                child: Text(
+                  'Matches completed',
+                  style: Styles.textMedium14(
+                    context,
+                  ).copyWith(color: Colors.white),
+                ),
               ),
             ),
             behavior: SnackBarBehavior.floating,
             margin: EdgeInsets.only(
               bottom: MediaQuery.of(context).size.height * 0.7,
-              left: MediaQuery.of(context).size.width * 0.6,
+              left: MediaQuery.of(context).size.width * 0.50,
               right: 10,
             ),
             backgroundColor: const Color(0xff2e2e3a),

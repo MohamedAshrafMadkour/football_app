@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:football_scoore_app/core/error/error.dart';
 import 'package:football_scoore_app/core/utils/api_service.dart';
+import 'package:football_scoore_app/feature/home/data/model/coming_match/event.dart';
 import 'package:football_scoore_app/feature/home/data/model/live_match/score.dart';
 import 'package:football_scoore_app/feature/home/data/repo/home_repo.dart';
 
@@ -55,8 +56,28 @@ class HomeRepoImpl extends HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<LiveMatch>>> displayMatchesUpComing() {
-    throw UnimplementedError();
+  Future<Either<Failure, List<Event>>> displayMatchesUpComing() async {
+    try {
+      final data = await apiServices.getComingMatch(
+        endPoints: 'json/3/eventsnextleague.php?id=4328',
+      );
+
+      if (data['events'] == null || (data['events']).isEmpty) {
+        return left(ServerFailure('No matches in future'));
+      }
+      //https://www.thesportsdb.com/api/v1/json/3/eventsnextleague.php?id=4328
+      List<Event> comingMatches = [];
+      for (var item in data['events']) {
+        if (item != null) {
+          comingMatches.add(Event.fromJson(item));
+        }
+      }
+      return right(comingMatches);
+    } on DioException catch (e) {
+      return left(ServerFailure.fromDioError(e));
+    } catch (e) {
+      return left(ServerFailure(e.toString()));
+    }
   }
 }
 

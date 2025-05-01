@@ -17,7 +17,7 @@ class DetailsView extends StatelessWidget {
           },
           icon: const Icon(Icons.chevron_left, size: 30, color: Colors.white),
         ),
-        title: const Text('Final Score', style: Styles.textSemiBold18),
+        title: Text('Final Score', style: Styles.textSemiBold18(context)),
         centerTitle: true,
         actions: const [
           Icon(Icons.info, color: Colors.white, size: 24),

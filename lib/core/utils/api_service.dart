@@ -44,4 +44,24 @@ class ApiServices {
       }
     }
   }
+
+  final String _baseUrl3 = 'https://www.thesportsdb.com/api/v1/';
+  Future<Map<String, dynamic>> getComingMatch({
+    required String endPoints,
+  }) async {
+    try {
+      var response = await dio.get('$_baseUrl3$endPoints');
+      print('coming data=${response.data}');
+      return response.data;
+    } catch (e) {
+      if (e is DioException) {
+        throw ServerFailure.fromDioError(e);
+      } else {
+        throw ServerFailure(' Unknown Error occurred! Please try again.');
+      }
+    }
+  }
 }
+
+
+//https://www.thesportsdb.com/api/v1/json/3/eventsnext.php?id=133612

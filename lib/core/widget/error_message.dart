@@ -10,12 +10,7 @@ class ErrorMessage extends StatelessWidget {
       child: Text(
         textAlign: TextAlign.center,
         errorMessage,
-        style: Styles.textMedium14.copyWith(
-          color:
-              Theme.of(context).brightness == Brightness.dark
-                  ? Colors.white
-                  : const Color(0xff2e2e3a),
-        ),
+        style: Styles.textMedium14(context),
       ),
     );
   }

@@ -12,7 +12,6 @@ class MatchesCompletedList extends StatelessWidget {
     return BlocBuilder<MatchesCompletedCubit, MatchesCompletedState>(
       builder: (context, state) {
         if (state is MatchesCompletedLoaded) {
-          print('Length of response: ${state.match.length}');
           return IntrinsicHeight(
             child: Column(
               children: List.generate(state.match.length, (index) {

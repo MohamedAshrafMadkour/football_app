@@ -6,18 +6,18 @@ class DetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
+    return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text('60 : 22', style: Styles.textMedium13),
-          SizedBox(height: 20),
+          Text('60 : 22', style: Styles.textMedium14(context)),
+          const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(width: 28),
-              Text('2 - 2', style: Styles.textSemiBold21),
-              SizedBox(width: 28),
+              const SizedBox(width: 28),
+              Text('2 - 2', style: Styles.textSemiBold21(context)),
+              const SizedBox(width: 28),
             ],
           ),
         ],

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:football_scoore_app/core/utils/app_image.dart';
 import 'package:football_scoore_app/core/utils/router.dart';
 import 'package:football_scoore_app/core/utils/styles.dart';
+import 'package:football_scoore_app/feature/home/data/model/coming_match/event.dart';
+import 'package:football_scoore_app/feature/home/presentation/view/widget/custom_cached_image_completed.dart';
 import 'package:go_router/go_router.dart';
 
 class UpComingMatchItem extends StatelessWidget {
-  const UpComingMatchItem({super.key});
-
+  const UpComingMatchItem({super.key, required this.match});
+  final Event match;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -15,35 +16,70 @@ class UpComingMatchItem extends StatelessWidget {
       },
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-        width: double.infinity,
         decoration: BoxDecoration(
-          color: const Color(0xff2e2e3a),
+          color:
+              Theme.of(context).brightness == Brightness.light
+                  ? const Color(0xffEDEDED)
+                  : const Color(0xff2e2e3a),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            const Text('Man United', style: Styles.textMedium14),
-            const SizedBox(width: 10),
+            SizedBox(
+              width: MediaQuery.sizeOf(context).width * .24,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    match.strHomeTeam ?? " ",
+                    style: Styles.textMedium14(context),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 8),
+                  CustomCachedImageCompleted(
+                    imageUrl: match.strHomeTeamBadge ?? " ",
+                  ),
+                  const SizedBox(height: 4),
+                  Text('Home', style: Styles.textMedium14(context)),
+                ],
+              ),
+            ),
             Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.asset(Assets.imagesBarcelona, height: 50, width: 50),
-                const Text('home', style: Styles.textMedium14),
+                Text(
+                  match.dateEvent.toString(),
+                  style: Styles.textMedium14(context),
+                ),
+                Text(
+                  match.strTimeLocal.toString().substring(0, 5),
+                  style: Styles.textSemiBold21(context),
+                ),
               ],
             ),
-            const SizedBox(width: 30),
-            const Text('2 - 2', style: Styles.textSemiBold21),
-            const SizedBox(width: 30),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Image.asset(Assets.imagesCity, height: 50, width: 50),
-                const Text('away', style: Styles.textMedium14),
-              ],
+            SizedBox(
+              width: MediaQuery.sizeOf(context).width * .24,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    match.strAwayTeam ?? " ",
+                    style: Styles.textMedium14(context),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 8),
+                  CustomCachedImageCompleted(
+                    imageUrl: match.strAwayTeamBadge ?? " ",
+                  ),
+                  const SizedBox(height: 4),
+                  Text('Away', style: Styles.textMedium14(context)),
+                ],
+              ),
             ),
-            const SizedBox(width: 10),
-            const Text('Man City', style: Styles.textMedium14),
           ],
         ),
       ),

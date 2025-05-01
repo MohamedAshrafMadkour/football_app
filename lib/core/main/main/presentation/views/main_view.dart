@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:football_scoore_app/core/main/main/presentation/views/widget/custom_icon_navigation.dart';
 import 'package:football_scoore_app/feature/home/presentation/view/home_view.dart';
 import 'package:football_scoore_app/feature/news/presentation/views/news_app.dart';
+import 'package:football_scoore_app/feature/search/presentation/view/search_view.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});
@@ -11,7 +12,7 @@ class MainView extends StatefulWidget {
 }
 
 class _MainViewState extends State<MainView> {
-  static const List scaffold = [HomeView(), NewsView(), Scaffold(), Scaffold()];
+  static const List scaffold = [HomeView(), NewsView(), SearchView()];
   int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -42,21 +43,13 @@ class _MainViewState extends State<MainView> {
               icon: Icons.newspaper,
               isActive: currentIndex == 1,
             ),
+
             CustomIconNavigation(
-              icon: Icons.settings,
+              icon: Icons.search,
               isActive: currentIndex == 2,
               onPressed: () {
                 setState(() {
                   currentIndex = 2;
-                });
-              },
-            ),
-            CustomIconNavigation(
-              icon: Icons.search,
-              isActive: currentIndex == 3,
-              onPressed: () {
-                setState(() {
-                  currentIndex = 3;
                 });
               },
             ),
