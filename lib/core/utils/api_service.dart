@@ -18,6 +18,23 @@ class ApiServices {
         '$_baseUrl$endPoints',
         options: Options(headers: headers),
       );
+      print('data=${response.data}');
+      return response.data;
+    } catch (e) {
+      if (e is DioException) {
+        throw ServerFailure.fromDioError(e);
+      } else {
+        throw ServerFailure(' Unknown Error occurred! Please try again.');
+      }
+    }
+  }
+
+  final String _baseUrl2 = 'https://newsapi.org/v2/';
+  static const apiKey2 = '1944b44380b345dba309bc44223f0aa2';
+  Future<Map<String, dynamic>> getNeWs({required String endPoints}) async {
+    try {
+      var response = await dio.get('$_baseUrl2$endPoints&$apiKey2');
+      print('data=${response.data}');
       return response.data;
     } catch (e) {
       if (e is DioException) {

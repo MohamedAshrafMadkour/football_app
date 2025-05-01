@@ -8,9 +8,12 @@ part 'matches_completed_state.dart';
 class MatchesCompletedCubit extends Cubit<MatchesCompletedState> {
   MatchesCompletedCubit(this.repoHome) : super(MatchesCompletedInitial());
   final HomeRepo repoHome;
+
   Future<void> getCompletedMatch() async {
     emit(MatchesCompletedLoading());
+
     var match = await repoHome.displayMatchesCompleted();
+
     match.fold(
       (failure) {
         emit(MatchesCompletedFailure(error: failure.errorMessage));

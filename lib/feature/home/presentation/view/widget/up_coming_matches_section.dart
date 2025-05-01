@@ -7,15 +7,23 @@ class UpComingMatchesSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 16),
-          child: Text("Up-Coming Matches", style: Styles.textBold18),
+          padding: const EdgeInsets.only(left: 16),
+          child: Text(
+            "Up-Coming Matches",
+            style: Styles.textBold18.copyWith(
+              color:
+                  Theme.of(context).brightness == Brightness.dark
+                      ? Colors.white
+                      : const Color(0xff2e2e3a),
+            ),
+          ),
         ),
-        SizedBox(height: 20),
-        UpComingMatchesList(),
+        const SizedBox(height: 20),
+        const UpComingMatchesList(),
       ],
     );
   }

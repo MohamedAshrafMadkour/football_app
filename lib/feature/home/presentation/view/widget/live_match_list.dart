@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:football_scoore_app/core/utils/styles.dart';
 import 'package:football_scoore_app/core/widget/error_message.dart';
 import 'package:football_scoore_app/feature/home/presentation/view/manager/live_match/live_matches_cubit.dart';
 import 'package:football_scoore_app/feature/home/presentation/view/widget/live_match_item.dart';
@@ -13,8 +14,18 @@ class LiveMatchItemList extends StatelessWidget {
       builder: (context, state) {
         if (state is LiveMatchesLoaded) {
           final matches = state.match;
-          if (matches == null || matches.isEmpty) {
-            return const Center(child: Text("No matches now"));
+          if (matches.isEmpty) {
+            return Center(
+              child: Text(
+                "No matches now",
+                style: Styles.textMedium14.copyWith(
+                  color:
+                      Theme.of(context).brightness == Brightness.dark
+                          ? Colors.white
+                          : const Color(0xff2e2e3a),
+                ),
+              ),
+            );
           }
           return SizedBox(
             height: MediaQuery.sizeOf(context).height * .24,

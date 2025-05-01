@@ -1,24 +1,36 @@
 import 'package:equatable/equatable.dart';
 
 class Parameters extends Equatable {
-  final String? season;
-  final String? status;
   final String? league;
+  final String? season;
+  final String? from;
+  final String? to;
+  final String? timezone;
 
-  const Parameters({this.season, this.status, this.league});
+  const Parameters({
+    this.league,
+    this.season,
+    this.from,
+    this.to,
+    this.timezone,
+  });
 
   factory Parameters.fromJson(Map<String, dynamic> json) => Parameters(
-    season: json['season'] as String?,
-    status: json['status'] as String?,
     league: json['league'] as String?,
+    season: json['season'] as String?,
+    from: json['from'] as String?,
+    to: json['to'] as String?,
+    timezone: json['timezone'] as String?,
   );
 
   Map<String, dynamic> toJson() => {
-    'season': season,
-    'status': status,
     'league': league,
+    'season': season,
+    'from': from,
+    'to': to,
+    'timezone': timezone,
   };
 
   @override
-  List<Object?> get props => [season, status, league];
+  List<Object?> get props => [league, season, from, to, timezone];
 }

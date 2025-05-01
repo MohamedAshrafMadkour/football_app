@@ -1,9 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_scoore_app/core/utils/styles.dart';
+import 'package:football_scoore_app/feature/home/presentation/view/manager/matches_completed/matches_completed_cubit.dart';
 import 'package:football_scoore_app/feature/home/presentation/view/widget/matched_completed_item_list.dart';
 
-class PopUpView extends StatelessWidget {
+class PopUpView extends StatefulWidget {
   const PopUpView({super.key});
+
+  @override
+  State<PopUpView> createState() => _PopUpViewState();
+}
+
+class _PopUpViewState extends State<PopUpView> {
+  @override
+  void initState() {
+    BlocProvider.of<MatchesCompletedCubit>(context).getCompletedMatch();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +30,11 @@ class PopUpView extends StatelessWidget {
       body: const SingleChildScrollView(
         child: Column(
           children: [
-            Text('Matches Completed', style: Styles.textSemiBold21),
+            Text(
+              'Matches Completed',
+              style: Styles.textSemiBold21,
+              textAlign: TextAlign.center,
+            ),
             SizedBox(height: 30),
             MatchesCompletedList(),
           ],

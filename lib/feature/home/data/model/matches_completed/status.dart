@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 class Status extends Equatable {
   final String? long;
   final String? short;
-  final dynamic elapsed;
+  final int? elapsed;
   final dynamic extra;
 
   const Status({this.long, this.short, this.elapsed, this.extra});
@@ -11,7 +11,7 @@ class Status extends Equatable {
   factory Status.fromJson(Map<String, dynamic> json) => Status(
     long: json['long'] as String?,
     short: json['short'] as String?,
-    elapsed: json['elapsed'] as dynamic,
+    elapsed: json['elapsed'] as int?,
     extra: json['extra'] as dynamic,
   );
 

@@ -13,15 +13,23 @@ class _CustomLiveMatchHeaderState extends State<CustomLiveMatchHeader> {
   bool isShow = false;
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 12),
+          padding: const EdgeInsets.symmetric(horizontal: 12),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Live Match', style: Styles.textSemiBold21),
-              CustomIconAndSnakeBar(),
+              Text(
+                'Live Match',
+                style: Styles.textSemiBold21.copyWith(
+                  color:
+                      Theme.of(context).brightness == Brightness.dark
+                          ? Colors.white
+                          : Colors.black,
+                ),
+              ),
+              const CustomIconAndSnakeBar(),
             ],
           ),
         ),

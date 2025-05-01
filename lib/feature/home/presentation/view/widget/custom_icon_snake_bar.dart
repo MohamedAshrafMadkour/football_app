@@ -12,6 +12,7 @@ class CustomIconAndSnakeBar extends StatelessWidget {
       onPressed: () {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
+            duration: const Duration(seconds: 2),
             content: InkWell(
               onTap: () {
                 GoRouter.of(context).push(NavigationRouter.kPopUpView);
@@ -21,7 +22,11 @@ class CustomIconAndSnakeBar extends StatelessWidget {
               ),
             ),
             behavior: SnackBarBehavior.floating,
-            margin: const EdgeInsets.only(bottom: 670, left: 250, right: 10),
+            margin: EdgeInsets.only(
+              bottom: MediaQuery.of(context).size.height * 0.7,
+              left: MediaQuery.of(context).size.width * 0.6,
+              right: 10,
+            ),
             backgroundColor: const Color(0xff2e2e3a),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
@@ -31,9 +36,12 @@ class CustomIconAndSnakeBar extends StatelessWidget {
       },
       icon: Transform.rotate(
         angle: -1.57079633,
-        child: const Icon(
+        child: Icon(
           Icons.arrow_back_ios_new_rounded,
-          color: Colors.white,
+          color:
+              Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white
+                  : const Color(0xff2e2e3a),
         ),
       ),
     );
