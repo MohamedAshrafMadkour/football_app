@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:football_scoore_app/core/utils/router.dart';
 import 'package:football_scoore_app/core/utils/styles.dart';
+import 'package:football_scoore_app/feature/home/data/model/live_match/score.dart';
 import 'package:go_router/go_router.dart';
 
 class CustomIconAndSnakeBar extends StatelessWidget {
@@ -15,7 +16,9 @@ class CustomIconAndSnakeBar extends StatelessWidget {
             duration: const Duration(seconds: 2),
             content: InkWell(
               onTap: () {
-                GoRouter.of(context).push(NavigationRouter.kPopUpView);
+                GoRouter.of(
+                  context,
+                ).push(NavigationRouter.kPopUpView, extra: LiveMatch);
               },
               child: Center(
                 child: Text(

@@ -1,10 +1,12 @@
 import 'package:equatable/equatable.dart';
+import 'package:football_scoore_app/feature/home/data/model/live_match/fixture.dart';
 import 'package:football_scoore_app/feature/home/data/model/live_match/goal.dart';
 import 'package:football_scoore_app/feature/home/data/model/live_match/league.dart';
 import 'package:football_scoore_app/feature/home/data/model/live_match/status.dart';
 import 'package:football_scoore_app/feature/home/data/model/live_match/team.dart';
 
 class LiveMatch extends Equatable {
+  final Fixture fixture;
   final LeagueLive league;
   final Team home;
   final Team away;
@@ -12,6 +14,7 @@ class LiveMatch extends Equatable {
   final Goal goal;
 
   const LiveMatch({
+    required this.fixture,
     required this.status,
     required this.home,
     required this.away,
@@ -21,6 +24,7 @@ class LiveMatch extends Equatable {
 
   factory LiveMatch.fromJson(Map<String, dynamic> json) {
     return LiveMatch(
+      fixture: Fixture.fromJson(json['fixture']),
       league: LeagueLive.fromJson(json['league']),
       status: Status.fromJson(json['fixture']['status']),
       home: Team.fromJson(json['teams']['home']),

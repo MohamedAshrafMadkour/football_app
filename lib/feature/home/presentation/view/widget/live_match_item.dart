@@ -35,7 +35,7 @@ class LiveMatchItemDark extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        GoRouter.of(context).push(NavigationRouter.kDetailsView);
+        GoRouter.of(context).push(NavigationRouter.kDetailsView, extra: match);
       },
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 24),

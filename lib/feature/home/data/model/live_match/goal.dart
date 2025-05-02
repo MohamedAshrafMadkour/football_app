@@ -1,6 +1,4 @@
-import 'package:equatable/equatable.dart';
-
-class Goal extends Equatable {
+class Goal {
   final int home;
   final int away;
 
@@ -10,6 +8,7 @@ class Goal extends Equatable {
     return Goal(home: json['home'] ?? 0, away: json['away'] ?? 0);
   }
 
-  @override
-  List<Object?> get props => [home, away];
+  factory Goal.empty() {
+    return const Goal(home: 0, away: 0);
+  }
 }

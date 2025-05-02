@@ -17,5 +17,9 @@ class Assets {
   /// Assets for imagesPlayer
   /// assets/images/player.png
   static const String imagesPlayer = "assets/images/player.png";
+
+  /// Assets for imagesPlayground
+  /// assets/images/playground.jpg
+  static const String imagesPlayground = "assets/images/playground.jpg";
 }
 

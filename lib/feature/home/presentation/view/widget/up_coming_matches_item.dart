@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:football_scoore_app/core/utils/router.dart';
 import 'package:football_scoore_app/core/utils/styles.dart';
 import 'package:football_scoore_app/feature/home/data/model/coming_match/event.dart';
 import 'package:football_scoore_app/feature/home/presentation/view/widget/custom_cached_image_completed.dart';
-import 'package:go_router/go_router.dart';
 
 class UpComingMatchItem extends StatelessWidget {
   const UpComingMatchItem({super.key, required this.match});
@@ -11,9 +9,7 @@ class UpComingMatchItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        GoRouter.of(context).push(NavigationRouter.kDetailsView);
-      },
+      onTap: null,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
         decoration: BoxDecoration(

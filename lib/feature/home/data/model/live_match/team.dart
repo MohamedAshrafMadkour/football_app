@@ -22,6 +22,10 @@ class Team extends Equatable {
     );
   }
 
+  factory Team.empty() {
+    return const Team(id: 0, name: '', logoUrl: '', winner: false);
+  }
+
   @override
   List<Object?> get props => [id, name, logoUrl, winner];
 }

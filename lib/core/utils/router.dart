@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_scoore_app/core/main/main/presentation/views/main_view.dart';
 import 'package:football_scoore_app/core/utils/service_locator.dart';
+import 'package:football_scoore_app/feature/home/data/model/live_match/score.dart';
+import 'package:football_scoore_app/feature/home/details/data/repo/details_repo_impl.dart';
+import 'package:football_scoore_app/feature/home/details/presentation/cubit/manage_events/manage_events_cubit.dart';
+import 'package:football_scoore_app/feature/home/details/presentation/cubit/manage_static/details_cubit.dart';
 import 'package:football_scoore_app/feature/home/details/presentation/view/details_view.dart';
 import 'package:football_scoore_app/feature/home/presentation/view/home_view.dart';
 import 'package:football_scoore_app/feature/home/presentation/view/pop_up_view.dart';
@@ -45,7 +49,28 @@ abstract class NavigationRouter {
       GoRoute(
         path: kDetailsView,
         builder: (BuildContext context, GoRouterState state) {
-          return const DetailsView();
+          final match = state.extra as LiveMatch?;
+
+          if (match == null) {
+            return const Center(child: Text("Error: Match data is missing."));
+          }
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create:
+                    (context) =>
+                        ManageEventsCubit(getIt<DetailsRepoImpl>())
+                          ..getMatchEvents(id: match.fixture.id),
+              ),
+              BlocProvider(
+                create:
+                    (context) =>
+                        DetailsCubit(getIt<DetailsRepoImpl>())
+                          ..getMatchStatics(id: match.fixture.id),
+              ),
+            ],
+            child: DetailsView(match: match),
+          );
         },
       ),
       GoRoute(
