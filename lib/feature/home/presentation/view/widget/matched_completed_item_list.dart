@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_scoore_app/core/widget/error_message.dart';
+import 'package:football_scoore_app/core/widget/shimmer.dart';
 import 'package:football_scoore_app/feature/home/presentation/view/manager/matches_completed/matches_completed_cubit.dart';
 import 'package:football_scoore_app/feature/home/presentation/view/widget/matches_completed_item.dart';
 
@@ -25,7 +26,7 @@ class MatchesCompletedList extends StatelessWidget {
         } else if (state is MatchesCompletedFailure) {
           return ErrorMessage(errorMessage: state.error);
         } else {
-          return const CircularProgressIndicator();
+          return const CustomShimmerUpcomingWidget();
         }
       },
     );

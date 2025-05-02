@@ -26,7 +26,7 @@ class DetailsRepoImpl extends DetailsRepo {
       for (var item in data['response']) {
         details.add(TeamStatistics.fromJson(item));
       }
-      print('details=${details}');
+      print('details=$details');
       return right(details);
     } catch (e) {
       return left(ServerFailure(e.toString()));

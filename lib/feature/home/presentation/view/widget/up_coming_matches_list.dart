@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:football_scoore_app/core/widget/error_message.dart';
+import 'package:football_scoore_app/core/widget/shimmer.dart';
 import 'package:football_scoore_app/feature/home/presentation/view/manager/coming_match/coming_match_cubit.dart';
 import 'package:football_scoore_app/feature/home/presentation/view/widget/up_coming_matches_item.dart';
+import 'package:shimmer/shimmer.dart';
 
 class UpComingMatchesList extends StatelessWidget {
   const UpComingMatchesList({super.key});
@@ -25,7 +27,7 @@ class UpComingMatchesList extends StatelessWidget {
         } else if (state is ComingMatchFailure) {
           return ErrorMessage(errorMessage: state.error);
         } else {
-          return const Center(child: CircularProgressIndicator());
+          return const CustomShimmerUpcomingWidget();
         }
       },
     );

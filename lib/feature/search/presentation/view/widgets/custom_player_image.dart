@@ -11,8 +11,10 @@ class CustomPlayerImage extends StatelessWidget {
       child: CachedNetworkImage(
         fit: BoxFit.fill,
         imageUrl: player.strCutout ?? " ",
-        placeholder: (context, url) => const CircularProgressIndicator(),
-        errorWidget: (context, url, error) => const Icon(Icons.error),
+        placeholder:
+            (context, url) => const Center(child: CircularProgressIndicator()),
+        errorWidget:
+            (context, url, error) => const Center(child: Icon(Icons.error)),
       ),
     );
   }

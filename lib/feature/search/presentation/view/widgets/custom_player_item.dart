@@ -11,7 +11,10 @@ class CustomPlayerItem extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color:
+            Theme.of(context).brightness == Brightness.dark
+                ? const Color(0xff2e2e3a)
+                : Colors.white,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Row(
