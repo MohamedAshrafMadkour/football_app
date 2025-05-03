@@ -4,7 +4,6 @@ import 'package:football_scoore_app/core/main/main/presentation/views/main_view.
 import 'package:football_scoore_app/core/utils/service_locator.dart';
 import 'package:football_scoore_app/feature/home/data/model/live_match/score.dart';
 import 'package:football_scoore_app/feature/home/details/data/repo/details_repo_impl.dart';
-import 'package:football_scoore_app/feature/home/details/presentation/cubit/manage_events/manage_events_cubit.dart';
 import 'package:football_scoore_app/feature/home/details/presentation/cubit/manage_static/details_cubit.dart';
 import 'package:football_scoore_app/feature/home/details/presentation/view/details_view.dart';
 import 'package:football_scoore_app/feature/home/presentation/view/home_view.dart';
@@ -56,12 +55,6 @@ abstract class NavigationRouter {
           }
           return MultiBlocProvider(
             providers: [
-              BlocProvider(
-                create:
-                    (context) =>
-                        ManageEventsCubit(getIt<DetailsRepoImpl>())
-                          ..getMatchEvents(id: match.fixture.id),
-              ),
               BlocProvider(
                 create:
                     (context) =>
