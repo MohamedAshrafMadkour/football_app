@@ -13,6 +13,7 @@ import 'package:football_scoore_app/feature/news/presentation/views/manager/news
 import 'package:football_scoore_app/feature/search/data/repo/search_repo_impl.dart';
 import 'package:football_scoore_app/feature/search/presentation/manager/search_about_player/search_about_player_cubit.dart';
 
+// https://www.thesportsdb.com/api/v1/json/3/eventspastleague.php?id=4332
 //https://newsapi.org/v2/everything?q=football+transfers&apiKey=1944b44380b345dba309bc44223f0aa2
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
