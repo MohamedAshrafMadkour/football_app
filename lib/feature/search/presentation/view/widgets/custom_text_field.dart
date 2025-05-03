@@ -55,20 +55,17 @@ class _CustomTextFieldState extends State<CustomTextField> {
             controller.text.isNotEmpty
                 ? IconButton(
                   onPressed: () {
-                    setState(() {
-                      controller.clear();
-                    });
+                    controller.clear();
+                    context.read<SearchAboutPlayerCubit>().emptyRes();
                   },
                   icon: const Icon(Icons.clear, color: Colors.black),
                 )
                 : IconButton(
                   onPressed: () {
                     if (controller.text.trim().isNotEmpty) {
-                      setState(() {
-                        context.read<SearchAboutPlayerCubit>().getPlayerSearch(
-                          playerName: controller.text.trim(),
-                        );
-                      });
+                      context.read<SearchAboutPlayerCubit>().getPlayerSearch(
+                        playerName: controller.text.trim(),
+                      );
                     }
                   },
                   icon: const Icon(Icons.search, color: Colors.black),
